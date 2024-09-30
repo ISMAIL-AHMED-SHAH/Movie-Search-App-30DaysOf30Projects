@@ -72,7 +72,7 @@ export default function MovieSearch() {
   // JSX return statement rendering the Movie Search UI
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 p-4">
-      <div className="w-full max-w-lg p-6 bg-gray-800 rounded-lg shadow-lg">
+      <div className="w-full max-w-lg p-6 rounded-lg shadow-2xl bg-gray-800 border border-gray-700 transition-all hover:border-blue-500 hover:shadow-blue-500/50">
         {/* Title of the Movie Search component */}
         <h1 className="text-4xl font-bold mb-1 text-center">
           <span className="text-blue-500">Movie</span>{" "}
@@ -165,6 +165,10 @@ export default function MovieSearch() {
           </div>
         )}
       </div>
+                  {/* Footer section */}
+                  <footer className="mt-4 text-sm text-muted-foreground">
+        Created By Ismail Ahmed Shah
+      </footer>
     </div>
   );
 }
