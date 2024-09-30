@@ -1,10 +1,10 @@
-"use client"; // Enables client-side rendering for this component
+"use client";
 
-import { useState, ChangeEvent } from "react"; // Import useState and ChangeEvent from React
-import { Input } from "@/components/ui/input"; // Import custom Input component
-import { Button } from "@/components/ui/button"; // Import custom Button component
-import { CalendarIcon, StarIcon } from "lucide-react"; // Import icons from lucide-react
-import Image from "next/image"; // Import Next.js Image component
+import { useState, ChangeEvent } from "react"; 
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { CalendarIcon, StarIcon } from "lucide-react"; 
+import Image from "next/image"; 
 import ClipLoader from "react-spinners/ClipLoader";
 
 // Define the MovieDetails type
@@ -22,14 +22,11 @@ type MovieDetails = {
 };
 
 export default function MovieSearch() {
-  // State to manage the search term input by the user
-  const [searchTerm, setSearchTerm] = useState<string>("");
-  // State to manage the movie details retrieved from the API
-  const [movieDetails, setMovieDetails] = useState<MovieDetails | null>(null);
-  // State to manage the loading state during API fetch
-  const [loading, setLoading] = useState<boolean>(false);
-  // State to manage any error messages from the API
-  const [error, setError] = useState<string | null>(null);
+    const [searchTerm, setSearchTerm] = useState<string>("");
+    const [movieDetails, setMovieDetails] = useState<MovieDetails | null>(null);
+    const [loading, setLoading] = useState<boolean>(false);
+    const [error, setError] = useState<string | null>(null);
+    
 
   // Function to handle the search button click
   const handleSearch = async (): Promise<void> => {
