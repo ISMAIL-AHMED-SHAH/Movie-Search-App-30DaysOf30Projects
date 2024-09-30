@@ -33,27 +33,32 @@ export default function MovieSearch() {
 
   // Function to handle the search button click
   const handleSearch = async (): Promise<void> => {
-    setLoading(true); // Set loading to true while fetching data
-    setError(null); // Reset error state
-    setMovieDetails(null); // Reset movie details state
+    setLoading(true);
+    setError(null);
+    setMovieDetails(null);
     try {
-      const response = await fetch(
-        `https://www.omdbapi.com/?t=${searchTerm}&apikey=${process.env.NEXT_PUBLIC_OMDB_API_KEY}`
-      );
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      const data = await response.json();
-      if (data.Response === "False") {
-        throw new Error(data.Error);
-      }
-      setMovieDetails(data); // Set movie details state with the fetched data
-    } catch (error: any) {
-      setError(error.message); // Set error state with the error message
+        const response = await fetch(
+            `https://www.omdbapi.com/?t=${searchTerm}&apikey=${process.env.NEXT_PUBLIC_OMDB_API_KEY}`
+        );
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        if (data.Response === "False") {
+            throw new Error(data.Error);
+        }
+        setMovieDetails(data);
+    } catch (error: unknown) {
+        if (error instanceof Error) {
+            setError(error.message);
+        } else {
+            setError("An unknown error occurred.");
+        }
     } finally {
-      setLoading(false); // Set loading to false after fetching data
+        setLoading(false);
     }
-  };
+};
+
 
   // Function to handle changes in the search input field
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
