@@ -8,4 +8,4 @@ Display movie details (title, poster, synopsis)
 Use a movie API (e.g., OMDB)
 
 
-Live on Vercel :  
+Live on Vercel :  https://movie-search-app-30-days-of30-projects.vercel.app/
